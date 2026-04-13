@@ -1,0 +1,51 @@
+---
+title: Example Guide
+description: A guide in my new Starlight docs site.
+---
+
+import Underline from '../../../../components/Underline.astro';
+import GradientUnderline from '../../../../components/GradientUnderline.astro';
+import VueUnderline from '../../../../components/VueUnderline.vue';
+import InteractiveCard from '../../../../components/InteractiveCard.vue';
+
+Guides lead a user through a <Underline>specific task</Underline> they want to accomplish, often with a sequence of steps.
+Writing a good guide requires thinking about what your users are trying to do.
+
+## Underline Examples
+
+Here are several different underline styles:
+
+- **Basic underline**: This is an <Underline>basic underline</Underline> example
+- **Custom color**: This is a <Underline color="#ff6b6b">red underline</Underline> example
+- **Gradient underline**: This is a <GradientUnderline>gradient underline</GradientUnderline> example
+- **Custom gradient**: This is a <GradientUnderline from="#ff6b6b" to="#ffd93d">custom gradient</GradientUnderline> example
+
+## Vue Component Examples
+
+### Vue Underline Component (Interactive)
+
+- **Basic Vue underline**: This is a <VueUnderline>Vue underline</VueUnderline> example (hover to see effect)
+- **Custom color**: This is a <VueUnderline color="#ff6b6b" hoverColor="#ff0">red Vue underline</VueUnderline> example
+- **Animated underline**: This is a <VueUnderline animated={true}>animated underline</VueUnderline> example
+
+### Interactive Card Component
+
+<InteractiveCard title="Click to expand for details" initialExpanded={false}>
+  This is an interactive card component! You can place any content here, such as:
+  
+  - Detailed explanations
+  - Code examples
+  - Images or other media
+  
+  This component is built using Vue 3's Composition API and supports smooth expand/collapse animations.
+</InteractiveCard>
+
+<InteractiveCard title="Card expanded by default" initialExpanded={true}>
+  This card is expanded by default. Using Vue components in Astro is very simple, just like using Astro components!
+  
+  You can pass props to control component behavior, such as the `initialExpanded` property of this card.
+</InteractiveCard>
+
+## Further reading
+
+- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework

@@ -1,0 +1,26 @@
+---
+interface Props {
+  text: string;
+  color?: string;
+  thickness?: string;
+  offset?: string;
+}
+
+const { 
+  text, 
+  color = "#00a8cc", 
+  thickness = "2px",
+  offset = "4px"
+} = Astro.props;
+---
+
+<span 
+  style={`
+    text-decoration: underline;
+    text-decoration-color: ${color};
+    text-decoration-thickness: ${thickness};
+    text-underline-offset: ${offset};
+  `}
+>
+  <slot />
+</span>
