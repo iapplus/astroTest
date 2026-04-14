@@ -1,0 +1,16 @@
+body[data-homepage] .sidebar,
+body[data-homepage] .left-sidebar,
+body[data-homepage] .right-sidebar {
+  display: none !important;
+}
+
+body[data-homepage] .main-pane,
+body[data-homepage] .sl-container {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body[data-homepage] .page {
+  background-color: #f8f8f8 !important;
+}
