@@ -72,6 +72,11 @@ import Card from "./ui/Card.astro";
     object-fit: contain;
   }
 
+  .product-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .product-name {
     font-size: 18px;
     font-weight: 500;
@@ -115,12 +120,14 @@ import Card from "./ui/Card.astro";
       <p class="product-name">Keypad Door Lock Cylinder</p>
     </Card>
 
-    <Card class="product-card">
-      <div class="product-icon">
-        <img src="/images/wi-fi-gateway.png" alt="Wi-Fi Gateway" />
-      </div>
-      <p class="product-name">Wi-Fi Gateway</p>
-    </Card>
+    <a href="/wifi-gateway/" class="product-card-link">
+      <Card class="product-card">
+        <div class="product-icon">
+          <img src="/images/wi-fi-gateway.png" alt="Wi-Fi Gateway" />
+        </div>
+        <p class="product-name">Wi-Fi Gateway</p>
+      </Card>
+    </a>
 
     <Card class="product-card">
       <div class="product-icon">

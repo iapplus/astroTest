@@ -1,11 +1,15 @@
 body[data-homepage] .sidebar,
 body[data-homepage] .left-sidebar,
-body[data-homepage] .right-sidebar {
+body[data-homepage] .right-sidebar,
+body[data-homepage] aside,
+body[data-homepage] nav {
   display: none !important;
 }
 
+body[data-homepage] main,
 body[data-homepage] .main-pane,
 body[data-homepage] .sl-container {
+  grid-template-columns: 1fr !important;
   max-width: none !important;
   padding: 0 !important;
   margin: 0 !important;
