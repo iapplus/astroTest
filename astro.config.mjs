@@ -10,6 +10,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'WELOCK',
+            defaultLocale: 'root',
             customCss: [
                 './src/styles/homepage.css',
                 './src/styles/colors.css',
@@ -26,36 +27,73 @@ export default defineConfig({
             },
             social: [],
             locales: {
-                root: {label: '简体中文', lang: 'zh-CN'},
-                en: {label: 'English', lang: 'en'},
+                root: {label: 'English', lang: 'en'},
                 ja: {label: '日本語', lang: 'ja'},
+                de: {label: 'Deutsch', lang: 'de'},
+                es: {label: 'Español', lang: 'es'},
+                fr: {label: 'Français', lang: 'fr'},
+                it: {label: 'Italiano', lang: 'it'},
             },
             sidebar: [
                 {
                     label: 'Wi-Fi Gateway',
-                    items: [
-                        {
-                            label: 'FAQ',
-                            autogenerate: {directory: 'wifi-gateway/FAQ'},
-                        },
-                        {
-                            label: 'Features',
-                            autogenerate: {directory: 'wifi-gateway/Features'},
-                        },
-                        {
-                            label: 'How To Install',
-                            autogenerate: {directory: 'wifi-gateway/How To Install'},
-                        },
-                        {
-                            label: 'Installation Requirements',
-                            autogenerate: {directory: 'wifi-gateway/Installation Requirements'},
-                        },
-                        {
-                            label: 'Troubleshooting',
-                            autogenerate: {directory: 'wifi-gateway/Troubleshooting'},
-                        },
-                    ],
-
+                    translations: {
+                        en: 'Wi-Fi Gateway',
+                        ja: 'Wi-Fiゲートウェイ',
+                        de: 'Wi-Fi-Gateway',
+                        es: 'Puerta de enlace Wi-Fi',
+                        fr: 'Passerelle Wi-Fi',
+                        it: 'Gateway Wi-Fi',
+                    },
+                    autogenerate: {directory: 'wifi-gateway/FAQ'},
+                },
+                {
+                    label: 'Features',
+                    translations: {
+                        en: 'Features',
+                        ja: '機能',
+                        de: 'Funktionen',
+                        es: 'Características',
+                        fr: 'Caractéristiques',
+                        it: 'Caratteristiche',
+                    },
+                    autogenerate: {directory: 'wifi-gateway/Features'},
+                },
+                {
+                    label: 'How To Install',
+                    translations: {
+                        en: 'How To Install',
+                        ja: '設置方法',
+                        de: 'Installation',
+                        es: 'Cómo instalar',
+                        fr: 'Comment installer',
+                        it: 'Come installare',
+                    },
+                    autogenerate: {directory: 'wifi-gateway/How To Install'},
+                },
+                {
+                    label: 'Installation Requirements',
+                    translations: {
+                        en: 'Installation Requirements',
+                        ja: '設置要件',
+                        de: 'Anforderungen',
+                        es: 'Requisitos de instalación',
+                        fr: 'Exigences d\'installation',
+                        it: 'Requisiti di installazione',
+                    },
+                    autogenerate: {directory: 'wifi-gateway/Installation Requirements'},
+                },
+                {
+                    label: 'Troubleshooting',
+                    translations: {
+                        en: 'Troubleshooting',
+                        ja: 'トラブルシューティング',
+                        de: 'Fehlerbehebung',
+                        es: 'Solución de problemas',
+                        fr: 'Dépannage',
+                        it: 'Risoluzione dei problemi',
+                    },
+                    autogenerate: {directory: 'wifi-gateway/Troubleshooting'},
                 },
             ],
         }),
