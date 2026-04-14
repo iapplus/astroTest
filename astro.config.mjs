@@ -32,6 +32,31 @@ export default defineConfig({
             },
             sidebar: [
                 {
+                    label: 'Wi-Fi Gateway',
+                    items: [
+                        {
+                            label: 'FAQ',
+                            autogenerate: {directory: 'wifi-gateway/FAQ'},
+                        },
+                        {
+                            label: 'Features',
+                            autogenerate: {directory: 'wifi-gateway/Features'},
+                        },
+                        {
+                            label: 'How To Install',
+                            autogenerate: {directory: 'wifi-gateway/How To Install'},
+                        },
+                        {
+                            label: 'Installation Requirements',
+                            autogenerate: {directory: 'wifi-gateway/Installation Requirements'},
+                        },
+                        {
+                            label: 'Troubleshooting',
+                            autogenerate: {directory: 'wifi-gateway/Troubleshooting'},
+                        },
+                    ],
+                },
+                {
                     label: 'Guides',
                     translations: {
                         'en': 'Guides',
