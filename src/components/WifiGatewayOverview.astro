@@ -28,12 +28,10 @@ const categoryArticles = {
 };
 
 const urlParams = new URLSearchParams(Astro.url.search);
-const activeCategory = urlParams.get('category') || 'FAQ';
-const activeDocs = categoryArticles[activeCategory as keyof typeof categoryArticles] || [];
+const initialCategory = urlParams.get('category') || 'FAQ';
 ---
 
 <style is:global>
-  /* 隐藏所有侧边栏元素 */
   body[data-homepage] aside,
   body[data-homepage] .sidebar,
   body[data-homepage] .left-sidebar,
@@ -43,7 +41,6 @@ const activeDocs = categoryArticles[activeCategory as keyof typeof categoryArtic
     display: none !important;
   }
 
-  /* 让主内容占满整个宽度 */
   body[data-homepage] main {
     grid-template-columns: 1fr !important;
   }
@@ -84,8 +81,8 @@ const activeDocs = categoryArticles[activeCategory as keyof typeof categoryArtic
 
   .category-item.active {
     border-color: #0094dd;
-    background: #0094dd;
-    color: #fff;
+    border-width: 3px;
+    color: #0094dd;
   }
 
   .category-icon {
@@ -144,14 +141,25 @@ const activeDocs = categoryArticles[activeCategory as keyof typeof categoryArtic
     text-align: center;
     padding: 40px 0;
   }
+
+  .articles-content {
+    display: none;
+  }
+
+  .articles-content.active {
+    display: block;
+  }
 </style>
+
+<script is:inline src="/js/wifi-gateway.js"></script>
 
 <div class="page-wrapper">
   <div class="category-nav">
     {categories.map((category) => (
       <a 
         href={`/wifi-gateway/?category=${encodeURIComponent(category.id)}`}
-        class={`category-item ${activeCategory === category.id ? 'active' : ''}`}
+        class={`category-item ${initialCategory === category.id ? 'active' : ''}`}
+        data-category={category.id}
       >
         <div class="category-icon">{category.icon}</div>
         <div class="category-label">{category.label}</div>
@@ -159,20 +167,30 @@ const activeDocs = categoryArticles[activeCategory as keyof typeof categoryArtic
     ))}
   </div>
 
-  <div class="articles-section">
-    <div class="articles-title">{activeCategory}</div>
-    {activeDocs.length > 0 ? (
-      <ul class="articles-list">
-        {activeDocs.map((doc) => (
-          <li class="article-item">
-            <a href={`/${doc.slug}`} class="article-link">
-              {doc.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <div class="no-articles">暂无文章</div>
-    )}
-  </div>
+  {categories.map((category) => {
+    const docs = categoryArticles[category.id as keyof typeof categoryArticles] || [];
+    return (
+      <div 
+        class={`articles-content ${initialCategory === category.id ? 'active' : ''}`}
+        data-category={category.id}
+      >
+        <div class="articles-section">
+          <div class="articles-title">{category.label}</div>
+          {docs.length > 0 ? (
+            <ul class="articles-list">
+              {docs.map((doc) => (
+                <li class="article-item">
+                  <a href={`/${doc.slug}`} class="article-link">
+                    {doc.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div class="no-articles">暂无文章</div>
+          )}
+        </div>
+      </div>
+    );
+  })}
 </div>
