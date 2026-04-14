@@ -10,17 +10,25 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'WELOCK',
-            customCss: ['./src/styles/homepage.css'],
+            customCss: [
+                './src/styles/homepage.css',
+                './src/styles/colors.css',
+            ],
             pagefind: false,
+            components: {
+                Header: './src/components/CustomHeader.astro',
+            },
+            logo: {
+                src: './public/images/logo.webp',
+                alt: 'WELOCK',
+                replacesTitle: true,
+            },
+            social: [],
             locales: {
                 root: {label: '简体中文', lang: 'zh-CN'},
                 en: {label: 'English', lang: 'en'},
                 ja: {label: '日本語', lang: 'ja'},
             },
-            logo: {
-                src: './public/favicon.svg',
-            },
-            social: [],
             sidebar: [
                 {
                     label: 'Guides',
