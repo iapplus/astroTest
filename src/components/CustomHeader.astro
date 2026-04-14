@@ -1,0 +1,16 @@
+---
+import Default from '@astrojs/starlight/components/Header.astro';
+---
+
+<Default>
+  <slot />
+</Default>
+
+<style is:global>
+  body[data-homepage] .header-title {
+    display: none !important;
+  }
+  body[data-homepage] .sl-flex {
+    justify-content: center !important;
+  }
+</style>

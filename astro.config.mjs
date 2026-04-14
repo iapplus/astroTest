@@ -17,6 +17,7 @@ export default defineConfig({
             pagefind: false,
             components: {
                 Header: './src/components/CustomHeader.astro',
+                Footer: './src/components/Footer.astro',
             },
             logo: {
                 src: './public/images/logo.webp',
