@@ -17,7 +17,7 @@ export default defineConfig({
             pagefind: false,
             components: {
                 Header: './src/components/CustomHeader.astro',
-                Footer: './src/components/Footer.astro',
+                // Footer: './src/components/Footer.astro',
             },
             logo: {
                 src: './public/images/logo.webp',
@@ -55,27 +55,7 @@ export default defineConfig({
                             autogenerate: {directory: 'wifi-gateway/Troubleshooting'},
                         },
                     ],
-                },
-                {
-                    label: 'Guides',
-                    translations: {
-                        'en': 'Guides',
-                        'ja': 'ガイド'
-                    },
-                    items: [
-                        {
-                            label: 'Example Guide',
-                            translations: {
-                                'en': 'Guides',
-                                'ja': '日本'
-                            }, slug: 'guides/example'
-                        },
-                        {label: 'test123', slug: 'guides/aaa'},
-                    ],
-                },
-                {
-                    label: 'Reference',
-                    autogenerate: {directory: 'reference'},
+
                 },
             ],
         }),
