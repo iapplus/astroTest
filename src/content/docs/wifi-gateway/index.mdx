@@ -8,6 +8,221 @@ template: splash
   document.body.setAttribute('data-homepage', 'true');
 </script>
 
-import WifiGatewayOverview from '../../../components/WifiGatewayOverview.astro';
+<style is:global>
+  body[data-homepage] aside,
+  body[data-homepage] .sidebar,
+  body[data-homepage] .left-sidebar,
+  body[data-homepage] .right-sidebar,
+  body[data-homepage] nav[aria-label="Main navigation"],
+  body[data-homepage] nav[aria-label="Table of contents"] {
+    display: none !important;
+  }
 
-<WifiGatewayOverview />
+  body[data-homepage] main {
+    grid-template-columns: 1fr !important;
+  }
+</style>
+
+<style>
+  .page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .category-nav {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .category-item {
+    padding: 16px 32px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    text-align: center;
+    min-width: 140px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .category-item:hover {
+    border-color: #0094dd;
+    color: #0094dd;
+  }
+
+  .category-item.active {
+    border-color: #0094dd;
+    border-width: 3px;
+    color: #0094dd;
+  }
+
+  .category-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .category-label {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .articles-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 32px;
+  }
+
+  .articles-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #222;
+    text-align: center;
+  }
+
+  .articles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .article-item {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .article-item:last-child {
+    border-bottom: none;
+  }
+
+  .article-link {
+    display: block;
+    padding: 16px 0;
+    color: #222;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  .article-link:hover {
+    color: #0094dd;
+  }
+
+  .no-articles {
+    color: #999;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .articles-content {
+    display: none;
+  }
+
+  .articles-content.active {
+    display: block;
+  }
+</style>
+
+<script is:inline>
+  const categories = [
+    { id: 'FAQ', label: 'FAQ', icon: '❓' },
+    { id: 'Features', label: 'Features', icon: '✨' },
+    { id: 'How To Install', label: 'How To Install', icon: '🔧' },
+    { id: 'Installation Requirements', label: 'Installation Requirements', icon: '📋' },
+    { id: 'Troubleshooting', label: 'Troubleshooting', icon: '🔍' },
+  ];
+
+  const categoryArticles = {
+    'FAQ': [
+      { title: 'How to connect Wi-Fi Gateway', slug: 'wifi-gateway/faq/how-to-connect/' },
+      { title: 'Troubleshooting connection issues', slug: 'wifi-gateway/faq/troubleshooting-connection/' },
+    ],
+    'Features': [
+      { title: 'Wireless Connectivity', slug: 'wifi-gateway/features/wireless-connectivity/' },
+      { title: 'Remote Control', slug: 'wifi-gateway/features/remote-control/' },
+    ],
+    'How To Install': [
+      { title: 'Step-by-Step Installation', slug: 'wifi-gateway/how-to-install/step-by-step/' },
+    ],
+    'Installation Requirements': [
+      { title: 'Wi-Fi Requirements', slug: 'wifi-gateway/installation-requirements/wifi-requirements/' },
+    ],
+    'Troubleshooting': [
+      { title: 'LED Indicators', slug: 'wifi-gateway/troubleshooting/led-indicators/' },
+    ],
+  };
+
+  function getInitialCategory() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('category') || 'FAQ';
+  }
+
+  function initCategories() {
+    const initialCategory = getInitialCategory();
+    
+    document.querySelectorAll('.category-item').forEach(item => {
+      if (item.getAttribute('data-category') === initialCategory) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('.articles-content').forEach(content => {
+      if (content.getAttribute('data-category') === initialCategory) {
+        content.classList.add('active');
+      } else {
+        content.classList.remove('active');
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initCategories);
+</script>
+
+<div class="page-wrapper">
+  <div class="category-nav">
+    {categories.map((category) => (
+      <a 
+        href={`/wifi-gateway/?category=${encodeURIComponent(category.id)}`}
+        class={`category-item`}
+        data-category={category.id}
+      >
+        <div class="category-icon">{category.icon}</div>
+        <div class="category-label">{category.label}</div>
+      </a>
+    ))}
+  </div>
+
+  {categories.map((category) => {
+    const docs = categoryArticles[category.id] || [];
+    return (
+      <div 
+        class="articles-content"
+        data-category={category.id}
+      >
+        <div class="articles-section">
+          <div class="articles-title">{category.label}</div>
+          {docs.length > 0 ? (
+            <ul class="articles-list">
+              {docs.map((doc) => (
+                <li class="article-item">
+                  <a href={`/${doc.slug}`} class="article-link">
+                    {doc.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div class="no-articles">暂无文章</div>
+          )}
+        </div>
+      </div>
+    );
+  })}
+</div>
