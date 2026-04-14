@@ -1,10 +1,15 @@
 ---
 title: Welcome to WELOCK
 description: WELOCK Product Documentation
-sidebar:
-  hidden: true
+template: splash
 ---
+
+<script is:inline>
+  document.body.setAttribute('data-homepage', 'true');
+</script>
 
 import Homepage from '../../components/Homepage.astro';
 
 <Homepage />
+
+

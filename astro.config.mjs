@@ -10,6 +10,8 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'WELOCK',
+            customCss: ['./src/styles/homepage.css'],
+            pagefind: false,
             locales: {
                 root: {label: '简体中文', lang: 'zh-CN'},
                 en: {label: 'English', lang: 'en'},
