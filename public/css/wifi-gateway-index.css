@@ -28,25 +28,29 @@ body[data-homepage] main {
 .category-item {
   padding: 16px 32px;
   border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: #fff;
   text-align: center;
   min-width: 140px;
   text-decoration: none;
   color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .category-item:hover {
   border-color: #0094dd;
   color: #0094dd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 148, 221, 0.15);
 }
 
 .category-item.active {
   border-color: #0094dd;
   border-width: 3px;
   color: #0094dd;
+  background: linear-gradient(135deg, rgba(0, 148, 221, 0.05), rgba(0, 212, 255, 0.05));
 }
 
 .category-icon {
@@ -61,8 +65,9 @@ body[data-homepage] main {
 
 .articles-section {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 .articles-title {
@@ -89,15 +94,18 @@ body[data-homepage] main {
 
 .article-link {
   display: block;
-  padding: 16px 0;
+  padding: 16px 24px;
   color: #222;
   text-decoration: none;
   font-size: 16px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  text-align: left;
+  border-radius: 8px;
 }
 
 .article-link:hover {
   color: #0094dd;
+  background: rgba(0, 148, 221, 0.05);
 }
 
 .no-articles {
@@ -112,4 +120,86 @@ body[data-homepage] main {
 
 .articles-content.active {
   display: block;
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 40px 16px;
+  }
+
+  .category-nav {
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .category-item {
+    padding: 14px 20px;
+    min-width: 100px;
+    flex: 1;
+    min-width: calc(50% - 6px);
+  }
+
+  .category-icon {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .category-label {
+    font-size: 13px;
+  }
+
+  .articles-section {
+    padding: 24px 16px;
+  }
+
+  .articles-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .article-link {
+    padding: 14px 16px;
+    font-size: 15px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 32px 12px;
+  }
+
+  .category-nav {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .category-item {
+    padding: 12px 16px;
+    min-width: 100%;
+  }
+
+  .category-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+
+  .category-label {
+    font-size: 12px;
+  }
+
+  .articles-section {
+    padding: 20px 12px;
+  }
+
+  .articles-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .article-link {
+    padding: 12px 12px;
+    font-size: 14px;
+    text-align: left;
+  }
 }

@@ -8,8 +8,52 @@ template: splash
   document.body.setAttribute('data-homepage', 'true');
 </script>
 
-import Homepage from '../../components/Homepage.astro';
+<link rel="stylesheet" href="/css/homepage.css" />
 
-<Homepage />
+<div class="page-wrapper">
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-icon">
+        <img src="/images/fingerprint-door-lock-cylinder.png" alt="Fingerprint Door Lock Cylinder" />
+      </div>
+      <p class="product-name">Fingerprint Door Lock Cylinder</p>
+    </div>
 
+    <div class="product-card">
+      <div class="product-icon">
+        <img src="/images/keypad-door-lock-cylinder.png" alt="Keypad Door Lock Cylinder" />
+      </div>
+      <p class="product-name">Keypad Door Lock Cylinder</p>
+    </div>
 
+    <a href="/wifi-gateway/" class="product-card-link">
+      <div class="product-card">
+        <div class="product-icon">
+          <img src="/images/wi-fi-gateway.png" alt="Wi-Fi Gateway" />
+        </div>
+        <p class="product-name">Wi-Fi Gateway</p>
+      </div>
+    </a>
+
+    <div class="product-card">
+      <div class="product-icon">
+        <img src="/images/welock-app.png" alt="Welock APP" />
+      </div>
+      <p class="product-name">Welock APP</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">
+        <img src="/images/rfid-card.png" alt="RFID Card" />
+      </div>
+      <p class="product-name">RFID Card</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">
+        <img src="/images/battery.png" alt="Battery" />
+      </div>
+      <p class="product-name">Battery</p>
+    </div>
+  </div>
+</div>
