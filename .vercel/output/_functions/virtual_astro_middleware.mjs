@@ -99,7 +99,7 @@ class ImmutableDataStore {
    */
   static async fromModule() {
     try {
-      const data = await import('./chunks/_astro_data-layer-content_BXpcIQLF.mjs');
+      const data = await import('./chunks/_astro_data-layer-content_yPgt4aco.mjs');
       if (data.default instanceof Map) {
         return ImmutableDataStore.fromMap(data.default);
       }
@@ -148,7 +148,7 @@ function createGetCollection({
     const hasFilter = typeof filter === "function";
     const store = await globalDataStore.get();
     if (store.hasCollection(collection)) {
-      const { default: imageAssetMap } = await import('./chunks/content-assets_DleWbedO.mjs');
+      const { default: imageAssetMap } = await import('./chunks/content-assets_DloNRoa4.mjs');
       const result = [];
       for (const rawEntry of store.values(collection)) {
         const data = updateImageReferencesInData(rawEntry.data, rawEntry.filePath, imageAssetMap);
@@ -205,7 +205,7 @@ const getCollection = createGetCollection({
 	liveCollections,
 });
 
-const starlightConfig = {"defaultLocale":{"label":"English","lang":"en","dir":"ltr","locale":"en"},"locales":{"en":{"label":"English","lang":"en","dir":"ltr"},"ja":{"label":"日本語","lang":"ja","dir":"ltr"},"de":{"label":"Deutsch","lang":"de","dir":"ltr"}}};
+const config = {"defaultLocale":{"label":"English","lang":"en","dir":"ltr","locale":"root"},"locales":{"root":{"label":"English","lang":"en","dir":"ltr"},"ja":{"label":"日本語","lang":"ja","dir":"ltr"},"de":{"label":"Deutsch","lang":"de","dir":"ltr"},"es":{"label":"Español","lang":"es","dir":"ltr"},"fr":{"label":"Français","lang":"fr","dir":"ltr"},"it":{"label":"Italiano","lang":"it","dir":"ltr"}}};
 
 const project = {"root":"file:///Users/interface/WebstormProjects/iapplus-astro/","srcDir":"file:///Users/interface/WebstormProjects/iapplus-astro/src/"};
 
@@ -1603,7 +1603,7 @@ async function loadTranslations() {
   return userTranslations;
 }
 const useTranslations = await createTranslationSystem(
-  starlightConfig,
+  config,
   await loadTranslations(),
   pluginTranslations
 );
