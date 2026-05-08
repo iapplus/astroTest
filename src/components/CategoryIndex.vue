@@ -10,11 +10,11 @@ interface Category {
   id: string
   label: string
   icon: string
+  articles: Article[]
 }
 
 interface LocaleData {
   categories: Category[]
-  articles: Record<string, Article[]>
   noArticles?: string
 }
 
@@ -47,7 +47,6 @@ const currentData = computed(() => {
 })
 
 const categories = computed(() => currentData.value?.categories || [])
-const articles = computed(() => currentData.value?.articles || {})
 const noArticlesText = computed(() => currentData.value?.noArticles || 'No articles yet')
 
 const fullBasePath = computed(() => {
@@ -85,8 +84,8 @@ const navigateTo = (categoryId: string) => {
     >
       <div class="articles-section">
         <div class="articles-title">{{ cat.label }}</div>
-        <ul v-if="articles[cat.id]?.length" class="articles-list">
-          <li v-for="article in articles[cat.id]" :key="article.slug" class="article-item">
+        <ul v-if="cat.articles?.length" class="articles-list">
+          <li v-for="article in cat.articles" :key="article.slug" class="article-item">
             <a :href="`${fullBasePath}/${article.slug}`" class="article-link">
               {{ article.title }}
             </a>
