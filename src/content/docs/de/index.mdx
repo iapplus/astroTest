@@ -4,56 +4,7 @@ description: WELOCK Produktdokumentation
 template: splash
 ---
 
-<script is:inline>
-  document.body.setAttribute('data-homepage', 'true');
-</script>
+import ProductGrid from '../../../components/ProductGrid.vue'
+import homepageData from '../../../data/product-grid-data.ts'
 
-<link rel="stylesheet" href="/css/homepage.css" />
-
-<div class="page-wrapper">
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/fingerprint-door-lock-cylinder.png" alt="Fingerabdruck-Türzylinder" />
-      </div>
-      <p class="product-name">Fingerabdruck-Türzylinder</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/keypad-door-lock-cylinder.png" alt="Tastenfeld-Türzylinder" />
-      </div>
-      <p class="product-name">Tastenfeld-Türzylinder</p>
-    </div>
-
-    <a href="/de/wifi-gateway/" class="product-card-link">
-      <div class="product-card">
-        <div class="product-icon">
-          <img src="/images/wi-fi-gateway.png" alt="Wi-Fi-Gateway" />
-        </div>
-        <p class="product-name">Wi-Fi-Gateway</p>
-      </div>
-    </a>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/welock-app.png" alt="Welock App" />
-      </div>
-      <p class="product-name">Welock App</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/rfid-card.png" alt="RFID-Karte" />
-      </div>
-      <p class="product-name">RFID-Karte</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/battery.png" alt="Batterie" />
-      </div>
-      <p class="product-name">Batterie</p>
-    </div>
-  </div>
-</div>
+<ProductGrid client:load data={homepageData} />

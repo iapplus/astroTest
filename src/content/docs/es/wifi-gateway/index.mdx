@@ -4,11 +4,7 @@ description: Documentación de la puerta de enlace Wi-Fi
 template: splash
 ---
 
-<script is:inline>
-  document.body.setAttribute('data-homepage', 'true');
-</script>
+import CategoryIndex from '../../../../components/CategoryIndex.vue'
+import wifiGatewayData from '../../wifi-gateway/category-index-data.ts'
 
-<link rel="stylesheet" href="/css/wifi-gateway-index.css" />
-<script src="/js/wifi-gateway-index.js"></script>
-
-<div id="page-wrapper" class="page-wrapper"></div>
+<CategoryIndex client:load data={wifiGatewayData} basePath="/wifi-gateway" />

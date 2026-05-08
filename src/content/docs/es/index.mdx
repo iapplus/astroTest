@@ -4,56 +4,7 @@ description: Documentación de productos WELOCK
 template: splash
 ---
 
-<script is:inline>
-  document.body.setAttribute('data-homepage', 'true');
-</script>
+import ProductGrid from '../../../components/ProductGrid.vue'
+import homepageData from '../../../data/product-grid-data.ts'
 
-<link rel="stylesheet" href="/css/homepage.css" />
-
-<div class="page-wrapper">
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/fingerprint-door-lock-cylinder.png" alt="Cilindro de cerradura de puerta con huella dactilar" />
-      </div>
-      <p class="product-name">Cilindro de cerradura de puerta con huella dactilar</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/keypad-door-lock-cylinder.png" alt="Cilindro de cerradura de puerta con teclado" />
-      </div>
-      <p class="product-name">Cilindro de cerradura de puerta con teclado</p>
-    </div>
-
-    <a href="/es/wifi-gateway/" class="product-card-link">
-      <div class="product-card">
-        <div class="product-icon">
-          <img src="/images/wi-fi-gateway.png" alt="Puerta de enlace Wi-Fi" />
-        </div>
-        <p class="product-name">Puerta de enlace Wi-Fi</p>
-      </div>
-    </a>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/welock-app.png" alt="Aplicación Welock" />
-      </div>
-      <p class="product-name">Aplicación Welock</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/rfid-card.png" alt="Tarjeta RFID" />
-      </div>
-      <p class="product-name">Tarjeta RFID</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/battery.png" alt="Batería" />
-      </div>
-      <p class="product-name">Batería</p>
-    </div>
-  </div>
-</div>
+<ProductGrid client:load data={homepageData} />

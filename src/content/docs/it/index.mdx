@@ -1,59 +1,10 @@
 ---
-title: Benvenuto in WELOCK
-description: Documentazione dei prodotti WELOCK
+title: Benvenuto su WELOCK
+description: Documentazione prodotti WELOCK
 template: splash
 ---
 
-<script is:inline>
-  document.body.setAttribute('data-homepage', 'true');
-</script>
+import ProductGrid from '../../../components/ProductGrid.vue'
+import homepageData from '../../../data/product-grid-data.ts'
 
-<link rel="stylesheet" href="/css/homepage.css" />
-
-<div class="page-wrapper">
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/fingerprint-door-lock-cylinder.png" alt="Cilindro serratura porta con impronta digitale" />
-      </div>
-      <p class="product-name">Cilindro serratura porta con impronta digitale</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/keypad-door-lock-cylinder.png" alt="Cilindro serratura porta con tastiera" />
-      </div>
-      <p class="product-name">Cilindro serratura porta con tastiera</p>
-    </div>
-
-    <a href="/it/wifi-gateway/" class="product-card-link">
-      <div class="product-card">
-        <div class="product-icon">
-          <img src="/images/wi-fi-gateway.png" alt="Gateway Wi-Fi" />
-        </div>
-        <p class="product-name">Gateway Wi-Fi</p>
-      </div>
-    </a>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/welock-app.png" alt="App Welock" />
-      </div>
-      <p class="product-name">App Welock</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/rfid-card.png" alt="Carta RFID" />
-      </div>
-      <p class="product-name">Carta RFID</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">
-        <img src="/images/battery.png" alt="Batteria" />
-      </div>
-      <p class="product-name">Batteria</p>
-    </div>
-  </div>
-</div>
+<ProductGrid client:load data={homepageData} />

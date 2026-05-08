@@ -4,7 +4,7 @@ description: Wi-Fi Gateway Documentation
 template: splash
 ---
 
-<link rel="stylesheet" href="/css/wifi-gateway-index.css" />
-<script src="/js/wifi-gateway-index.js"></script>
+import CategoryIndex from '../../../components/CategoryIndex.vue'
+import wifiGatewayData from './category-index-data.ts'
 
-<div id="page-wrapper" class="page-wrapper"></div>
+<CategoryIndex client:load data={wifiGatewayData} basePath="/wifi-gateway" />

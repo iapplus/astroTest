@@ -1,10 +1,10 @@
-import { ax as generateCspDigest, Y as spreadAttributes, aU as unescapeHTML, Q as renderTemplate, aV as removeBase, aW as isRemotePath, A as AstroError, aX as UnknownContentCollectionError, aY as AstroUserError, a7 as defineMiddleware, ag as sequence } from './chunks/sequence_DNIRoBB4.mjs';
+import { ay as generateCspDigest, Z as spreadAttributes, aV as unescapeHTML, T as renderTemplate, aW as removeBase, aX as isRemotePath, A as AstroError, aY as UnknownContentCollectionError, aZ as AstroUserError, a8 as defineMiddleware, ah as sequence } from './chunks/sequence_CFh66Y0r.mjs';
 import 'piccolore';
 import 'clsx';
 import 'html-escaper';
 import { Traverse } from 'neotraverse/modern';
 import * as z from 'zod/v4';
-import { c as createComponent, V as VALID_INPUT_FORMATS } from './chunks/consts_CQahTZ98.mjs';
+import { c as createComponent, V as VALID_INPUT_FORMATS } from './chunks/consts_ClK-6sBo.mjs';
 import * as devalue from 'devalue';
 import i18next from 'i18next';
 
@@ -99,7 +99,7 @@ class ImmutableDataStore {
    */
   static async fromModule() {
     try {
-      const data = await import('./chunks/_astro_data-layer-content_yPgt4aco.mjs');
+      const data = await import('./chunks/_astro_data-layer-content_fZ90dq8h.mjs');
       if (data.default instanceof Map) {
         return ImmutableDataStore.fromMap(data.default);
       }
@@ -148,7 +148,7 @@ function createGetCollection({
     const hasFilter = typeof filter === "function";
     const store = await globalDataStore.get();
     if (store.hasCollection(collection)) {
-      const { default: imageAssetMap } = await import('./chunks/content-assets_DloNRoa4.mjs');
+      const { default: imageAssetMap } = await import('./chunks/content-assets_DleWbedO.mjs');
       const result = [];
       for (const rawEntry of store.values(collection)) {
         const data = updateImageReferencesInData(rawEntry.data, rawEntry.filePath, imageAssetMap);
