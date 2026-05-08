@@ -17,7 +17,7 @@ export const homepageData: Record<string, ProductData> = {
     title: 'WELOCK',
     subtitle: 'Smart Home Access Solutions',
     products: [
-      { name: 'Fingerprint Door Lock', description: 'Biometric entry with fingerprint recognition', image: '/images/fingerprint-door-lock-cylinder.png', category: 'Locks' },
+      { name: 'Fingerprint Door Lock', description: 'Biometric entry with fingerprint recognition', image: '/images/fingerprint-door-lock-cylinder.png', link: '/fingerprint-door-lock', category: 'Locks' },
       { name: 'Keypad Door Lock', description: 'Code-based access with touch keypad', image: '/images/keypad-door-lock-cylinder.png', category: 'Locks' },
       { name: 'Wi-Fi Gateway', description: 'Connect your locks to the cloud', image: '/images/wi-fi-gateway.png', link: '/wifi-gateway/', category: 'Accessories' },
       { name: 'Welock App', description: 'Control all your devices remotely', image: '/images/welock-app.png', category: 'App' },

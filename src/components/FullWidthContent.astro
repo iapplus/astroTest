@@ -1,0 +1,48 @@
+---
+interface Props {
+  hideTitle?: boolean;
+  hideSidebar?: boolean;
+}
+
+const { hideTitle = false, hideSidebar = true } = Astro.props;
+---
+
+<div
+  class:list={[
+    'full-width-content',
+    { 'hide-title': hideTitle },
+    { 'hide-sidebar': hideSidebar }
+  ]}
+>
+  <slot />
+</div>
+
+<style is:global>
+  .full-width-content.hide-title .title {
+    display: none !important;
+  }
+
+  .full-width-content.hide-sidebar .sidebar,
+  .full-width-content.hide-sidebar .left-sidebar,
+  .full-width-content.hide-sidebar .right-sidebar,
+  .full-width-content.hide-sidebar aside {
+    display: none !important;
+  }
+
+  .full-width-content.hide-sidebar main,
+  .full-width-content.hide-sidebar .main-pane,
+  .full-width-content.hide-sidebar .sl-container {
+    grid-template-columns: 1fr !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .full-width-content .page {
+    background-color: transparent !important;
+  }
+
+  .full-width-content .sl-markdown-content {
+    padding: 0 !important;
+  }
+</style>

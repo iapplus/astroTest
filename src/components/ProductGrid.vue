@@ -47,19 +47,6 @@ const categories = computed(() => {
 
 <template>
   <div class="homepage">
-    <section class="hero">
-      <div class="hero-bg">
-        <div class="hero-circle hero-circle-1"></div>
-        <div class="hero-circle hero-circle-2"></div>
-        <div class="hero-circle hero-circle-3"></div>
-      </div>
-      <div class="hero-content">
-        <h1 class="hero-title">{{ currentData?.title }}</h1>
-        <p class="hero-subtitle">{{ currentData?.subtitle }}</p>
-        <div class="hero-line"></div>
-      </div>
-    </section>
-
     <div class="page-wrapper">
       <div v-if="categories.length" class="category-tags">
         <span
@@ -414,5 +401,9 @@ const categories = computed(() => {
     width: 100px;
     height: 100px;
   }
+}
+
+.content-panel{
+  display: none;
 }
 </style>
