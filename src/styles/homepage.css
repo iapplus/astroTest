@@ -34,3 +34,7 @@ body[data-homepage] .header {
 body[data-homepage] .title-wrapper {
   justify-content: center !important;
 }
+
+body[data-homepage] .title {
+  display: none !important;
+}
