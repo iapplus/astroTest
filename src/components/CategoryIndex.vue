@@ -71,7 +71,7 @@ const navigateTo = (categoryId: string) => {
         :class="{ active: activeCategory === cat.id }"
         @click.prevent="navigateTo(cat.id)"
       >
-        <div class="category-icon">{{ cat.icon }}</div>
+        <img :src="cat.icon" :alt="cat.label" class="category-icon" />
         <div class="category-label">{{ cat.label }}</div>
       </a>
     </div>
@@ -113,14 +113,19 @@ const navigateTo = (categoryId: string) => {
 }
 
 .category-item {
-  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 24px;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: #fff;
   text-align: center;
-  min-width: 140px;
+  width: 140px;
+  height: 140px;
   text-decoration: none;
   color: inherit;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -141,8 +146,10 @@ const navigateTo = (categoryId: string) => {
 }
 
 .category-icon {
-  font-size: 32px;
+  width: 48px;
+  height: 48px;
   margin-bottom: 8px;
+  object-fit: contain;
 }
 
 .category-label {
@@ -220,14 +227,15 @@ const navigateTo = (categoryId: string) => {
   }
 
   .category-item {
-    padding: 14px 20px;
-    min-width: 100px;
+    padding: 16px 20px;
     flex: 1;
     min-width: calc(50% - 6px);
+    max-width: 140px;
   }
 
   .category-icon {
-    font-size: 28px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 6px;
   }
 

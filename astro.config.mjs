@@ -34,10 +34,11 @@ export default defineConfig({
                 fr: {label: 'Français', lang: 'fr'},
                 it: {label: 'Italiano', lang: 'it'},
             },
+
             sidebar: [
                 {
                     label: 'Wi-Fi Gateway',
-                    collapsed: false,
+                    collapsed: true,
                     translations: {
                         en: 'Wi-Fi Gateway',
                         ja: 'Wi-Fiゲートウェイ',
@@ -50,7 +51,7 @@ export default defineConfig({
                 },
                 {
                     label: 'Fingerprint Door Lock',
-                    collapsed: false,
+                    collapsed: true,
                     translations: {
                         en: 'Fingerprint Door Lock',
                         ja: 'Wi-Fiゲートウェイ',
